@@ -1,4 +1,5 @@
 class Algorithms:
+    @staticmethod
     def minimum(arr):
         if len(arr) == 0:
             return None
@@ -8,6 +9,7 @@ class Algorithms:
                 min_num = num
         return min_num
 
+    @staticmethod
     def maximum(arr):
         if len(arr) == 0:
             return None
@@ -17,6 +19,7 @@ class Algorithms:
                 max_num = num
         return max_num
 
+    @staticmethod
     def bubble_sort(arr):
         for i in range(len(arr)):
             changed = False
