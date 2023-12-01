@@ -30,4 +30,4 @@ Sprawdzenie procesu logowania, dodawania produktu do koszyka i przechodzenia do 
 5. Sprawdź, czy na ekranie koszyka widoczny jest dodany produkt.
 
 #### Oczekiwany wynik
-Po przejściu przez wszystkie kroki, użytkownik powinien zobaczyć wybrany produkt na ekranie koszyka, co potwierdzi, że proces logowania i dodawania do koszyka.
+Po przejściu przez wszystkie kroki, użytkownik powinien zobaczyć wybrany produkt na ekranie koszyka, co potwierdzi, że proces logowania i dodawania produktu do koszyka działa poprawnie.
