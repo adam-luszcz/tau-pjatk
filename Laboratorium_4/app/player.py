@@ -1,4 +1,4 @@
-from utils import get_randomised_position, Directions
+from .utils import get_randomised_position, Directions
 
 class Player:
     def __init__(self, board_size: int):

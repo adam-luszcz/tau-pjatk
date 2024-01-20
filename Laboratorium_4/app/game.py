@@ -1,7 +1,7 @@
-from board import Board
-from player import Player
+from .board import Board
+from .player import Player
 from pynput import keyboard
-from utils import Directions
+from .utils import Directions
 
 class Game:
     BOARD_SIZE = 5
@@ -38,10 +38,3 @@ class Game:
 
         self.board.update_player_pos(new_pos)
         self.board.draw()
-
-if __name__ == '__main__':
-    game = Game()
-    game.board.draw()
-
-    with keyboard.Listener(on_release=game.on_press) as listener:
-        listener.join()

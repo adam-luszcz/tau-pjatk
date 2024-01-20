@@ -1,4 +1,5 @@
-from utils import get_randomised_position, clear_console
+from .utils import get_randomised_position, clear_console
+import random
 
 class Board:
     EMPTY = '.'
@@ -18,10 +19,13 @@ class Board:
 
     def generate_obstacles(self, num_obstacles):
         for _ in range(num_obstacles):
-            obstacle_pos = get_randomised_position(self.size)
+            obstacle_pos = self.get_randomised_obstacle_position()
             while obstacle_pos == self.player_pos or obstacle_pos == self.finish_pos or self.is_obstacle(obstacle_pos):
-                obstacle_pos = get_randomised_position(self.size)
+                obstacle_pos = self.get_randomised_obstacle_position()
             self.content[obstacle_pos[0]][obstacle_pos[1]] = self.OBSTACLE
+
+    def get_randomised_obstacle_position(self):
+        return random.randint(0, self.size - 1), random.randint(0, self.size - 1)
 
     def is_obstacle(self, pos):
         return self.content[pos[0]][pos[1]] == self.OBSTACLE
