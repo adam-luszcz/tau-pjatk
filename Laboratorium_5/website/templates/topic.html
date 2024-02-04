@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %} Topic {% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        {% for thread in threads %}
+            <div class="card mb-4">
+                <div class="card-header">
+                    Thread ID: {{ thread.id }}
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{ thread.title }}</h5>
+                    <p class="card-text">Created by: {{ thread.author_email }} at {{ thread.created_at.strftime('%d-%m-%Y %H:%M') }}</p>
+                    <a href="{{ url_for('views.thread_view', thread_id=thread.id) }}" class="btn btn-primary">Go to thread</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

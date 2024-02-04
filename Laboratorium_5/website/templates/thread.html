@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %} Thread {% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        {% for post in posts %}
+            <div class="card mb-4">
+                <div class="card-header">
+                    [{{ thread.title }}]
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{ post.content }}</p>
+                    <hr>
+                    <p class="text-muted">Posted by: {{ post.author_email }} at {{ post.created_at.strftime('%d-%m-%Y %H:%M') }}</p>
+                </div>
+            </div>
+        {% endfor %}
+        <h5>Answer</h5>
+        <form method="POST">
+            {{ form.csrf_token }}
+            <div class="mb-3">
+                {{ form.content(class="form-control") }}
+            </div>
+            <div class="mb-3">
+                {{ form.submit(class="btn btn-primary") }}
+            </div>
+        </form>
+            {% if thread.user_id == user.id %}
+                <form action="{{ url_for('views.delete_thread', thread_id=thread.id) }}" method="post">
+                    <button type="submit" class="btn btn-danger mt-2">Delete Thread</button>
+                </form>
+            {% endif %}
+    </div>
+{% endblock %}
